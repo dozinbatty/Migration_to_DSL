@@ -7,6 +7,9 @@ import javax.swing.JButton;
 
 
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
 import java.awt.event.ActionEvent;
 
 //import com.jenkins.migration.*;
@@ -53,7 +56,14 @@ public class frame1 {
 				URLConnectionReader objURLConnection = new URLConnectionReader();
 						
 				try {
-					JOptionPane.showMessageDialog(null, objURLConnection.getConfig());
+					Properties prop = new Properties();
+					String fileName = "./resources/config.properties";
+					InputStream inputstream = new FileInputStream(fileName);
+					prop.load(inputstream);
+					//System.out.println("URL" + prop.getProperty("app.URL"));
+			        String userpass = prop.getProperty("app.userpass");
+			        String geturl = prop.getProperty("app.URL");
+					JOptionPane.showMessageDialog(null, objURLConnection.getConfig(geturl,userpass));
 					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

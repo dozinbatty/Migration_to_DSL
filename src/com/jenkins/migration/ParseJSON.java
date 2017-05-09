@@ -1,6 +1,7 @@
 package com.jenkins.migration;
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,15 @@ public class ParseJSON {
 					System.out.println(jobject.get("nodeDescription").toString());
 					System.out.println(jobject.get("nodeName").toString());
 					System.out.println(jobject.get("numExecutors").toString());
+					System.out.println(jobject.get("views").toString());
+					//System.out.println(jobject.get("views").toString());
+					JSONArray jarray = (JSONArray)parser.parse(jobject.get("views").toString());
+					for (int i = 0; i < jarray.size(); i++) {
+						System.out.println(jarray.get(i).toString());	
+					}
+					
+					//ArrayList<String> arraylist = new ArrayList<>();
+					//arraylist.add(jobject.get("views").toString())
 					//System.out.println(jobject.get("description").toString());
 					//System.out.println(jobject.get("jobs").toString());
 					//JSONArray jobarray = new JSONArray();
