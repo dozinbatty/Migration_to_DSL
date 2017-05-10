@@ -64,6 +64,7 @@ public class frame1 {
 			        String userpass = prop.getProperty("app.userpass");
 			        String geturl = prop.getProperty("app.URL");
 					JOptionPane.showMessageDialog(null, objURLConnection.getConfig(geturl,userpass));
+					// Adding a testing line to the file for rebase
 					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
